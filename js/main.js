@@ -35,3 +35,10 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block"; //Displays the image in the slideshow
     dots[slideIndex - 1].className += " active"; //Adds "active" styling to dot associated with image
 }
+
+//Close contact form when user clicks off of it
+document.addEventListener("click", function(event) {
+    if (event.target.matches(".cancel") || !event.target.closest(".form-popup") && !event.target.closest(".Pop_Up_Button") && !event.target.closest(".contact")) {
+        closeForm()
+    }
+}, false)

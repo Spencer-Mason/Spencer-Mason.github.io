@@ -14,22 +14,23 @@
         <!--NAVBAR-->
         <div class="navbar">
             <a class="active" href="#home">Home</a>
+            <a href="#slideshow">Slideshow</a>
             <a href="#about">About</a>
             <a href="#github">GitHub</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
         <br><br>
 
         <!--BACKGROUND VIDEO-->
         <div id="home">
-            <video autoplay muted loop id="code_video">
+            <video onloadstart="this.playbackRate = 5;" autoplay muted loop id="code_video">
                 <source src="img_and_vid/video/code.mp4" type="video/mp4">
             </video>
         </div>
 
         <!--VIDEO TEXT-->
         <div class="video_text color_text">
-            <h1>Spencer Mason's Portfolio</h1>
+            <h1 class="page_title">Spencer Mason's Portfolio</h1>
             <strong>
                 <p class="center">
                     <q>Programming isn't about what you know; it's about what you can figure out.</q>
@@ -39,6 +40,57 @@
                     Hello, my name is Spencer Mason. This is my portfolio website, and on it I will tell you a bit about myself and my experience.
                 </p>
             </strong>
+        </div>
+
+        <!--SLIDESHOW-->
+        <div id="slideshow">
+            <div id="slideshow_background">
+                <div id="slideshow_container">
+                    <!--Slide 1-->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="img_and_vid/me_face.jpg" alt="A picture of my face">
+                        <div class="slide_text">You won't regret adding me to your team!</div>
+                    </div>
+                    <!--Slide 2-->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="img_and_vid/HTML_CSS_and_JavaScript.jpeg" alt="HMTL, CSS, and JS logos">
+                        <div class="slide_text">I am a full-stack software developer,<br>trained in:<br>HTML, CSS, and JavaScript.</div>
+                    </div>
+                    <!--Slide 3-->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="img_and_vid/Python.png" alt="Python Logo">
+                        <div class="slide_text">My training will also include Python,</div>
+                    </div>
+                    <!--Slide 4-->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="img_and_vid/C_Sharp_and_Dot_NET.png" alt="C# Logo">
+                        <div class="slide_text">C#, .NET Framework, ASP.NET, MVC,</div>
+                    </div>
+                    <!--Slide 5-->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="img_and_vid/SQL_and_Database.jpg" alt="SQL Logo">
+                        <div class="slide_text">back end development, databases and SQL.</div>
+                    </div>
+                    <!--Slide 6-->
+                    <div class="mySlides fade contact_image">
+                        <img class="slideshow_images" src="img_and_vid/carrier_pigeon.png" alt="Carrier pigeon with envelope">
+                        <div class="slide_text"><a class="contact" onclick="openForm()">Come on, then. Go ahead and contact me.</a></div>
+                    </div>
+                    <!--Previous and next buttons-->
+                    <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <!--Slideshow dots-->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
         </div>
 
         <!--ABOUT-->
@@ -53,7 +105,7 @@
                 <p>
                     I am currently training to be a software developer, enrolled in <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>'s Software Developer Boot Camp. I've worked in the industrial industry for most of my adult life, primarily as a welder, and in recent years I've had a strong desire to switch career paths. I've always had an interest in computers and technology, and now I am excited to grow that interest into a passion and a career as a technology professional.
                     <br><br>
-                    I'm on my way to being a full stack developer, and am a natural-born problem solver. I know I'd be a great asset to any team, so feel free to <a href="contact">contact</a> me!
+                    I'm on my way to being a full stack developer, and am a natural-born problem solver. I know I'd be a great asset to any team, so feel free to <a onclick="openForm()" class="contact">contact</a> me!
                 </p>
             </div>
         </div>
@@ -76,22 +128,19 @@
         </div>
 
         <!--CONTACT-->
-        <div class="row" id="contact">
-            <!--LEFT COLUMN, IMAGE-->
-            <div class="column2 column_tall">
-                <img src="img_and_vid/carrier_pigeon.png" alt="Carrier Pigeon">
-            </div>
-            <!--RIGHT COLUMN, FORM-->
-            <div class="column1 column_tall">
-                <h1>Contact</h1>
-                <form action="" method="post">
-                    <label>Name:</label>
-                        <input type="text" placeholder="Enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="email" name="email" placeholder="Enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="message" name="message" placeholder="Write me a message here">
-                        <input type="submit" value="SUBMIT">
+        <div id="contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/f/mdkodgna" method="POST" class="form_container">
+                    <h1>Contact</h1>
+                    <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter your name here" name="name" required>
+                    <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" placeholder="Enter your email here" required>
+                    <label for="message">Message:</label>
+                        <input type="text" id="message" name="message" placeholder="Write me a message here" name="message" required>
+                        <button type="submit" class="btn">SUBMIT</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>

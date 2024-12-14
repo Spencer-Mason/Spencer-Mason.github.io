@@ -1,78 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 /*GENERAL STYLING*/
-html{
+html {
     font-family: "Ubuntu", sans-serif;
+    scroll-behavior: smooth;
 }
 
-body{
+body {
     background-color: #0d0007;
     margin: 0%;
+    font-size: 1.5vw;
 }
 
-h1{
+body.fade-out {
+    opacity: .1;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.center {
     text-align: center;
 }
 
-.center{
-    text-align: center;
-}
-
-.color_text{
+.color_text {
     color: #F6FCDF;
 }
 
-q{
+q {
     font-style: italic;
 }
 
-img{
+img {
     display: block;
     max-width: 100%;
-    height: 340px;
-    margin-left: auto;
-    margin-right: auto;
+    max-height: 100%;
+    margin: auto;
 }
 
-p{
-    font-size: 20px;
+p {
+    letter-spacing: .1vw;
+    font-size: 2.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
-h1{
-    font-size: 40px;
-}
-
-.video_text p{
+.video_text p {
     font-size: 25px;
 }
 
-footer{
+footer {
     padding: 2%;
     background-color: #1A1A19;
     color: #F6FCDF;
 }
 
-@media screen and (max-width: 576px) {
-    img {
-        height: 175px;
-        margin-top: 50%;
-    }
-
-    h1{
-        font-size: 30px;
-    }
-
-    p{
-        font-size: 15px;
-    }
-
-    .video_text p{
-        font-size: 15px;
-    }
+a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /*NAV BAR*/
-.navbar{
+.navbar {
     overflow: hidden;
     background-color: #1A1A19;
     position: fixed;
@@ -83,41 +74,34 @@ footer{
     animation: move_nav 2s;
 }
 
-@keyframes move_nav{
+@keyframes move_nav {
     from {top:-100vw;}
     to {top: 0vw;}
 }
 
-.navbar a{
+.navbar a {
     float: left;
     display: block;
     color: #F6FCDF;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 20px;
+    padding: .75vw 1vw;
+    font-size: 1.5vw;
     text-align: center;
     position: relative;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     background-color: #F6FCDF;
     color: #859F3D;
     font-weight: bold;
+    transition: 0.5s ease-in;
 }
 
-.navbar a.active{
+.navbar a.active {
     background-color: #31511E;
 }
 
-@media screen and (max-width: 576px){
-    .navbar a{
-        width: 24%;
-        font-size: 15px;
-    }
-}
-
 /*BACKGROUND VIDEO*/
-#code_video{
+#code_video {
     position: fixed;
     left: 19%;
     bottom: 0;
@@ -125,102 +109,316 @@ footer{
     z-index: -1;
 }
 
-.video_text{
+.video_text {
     background: #0d00075e;
     width: 100%;
-    padding: 20px;
+    height: 100vh;
+    padding-top: 2vh;
     cursor: default;
 }
 
-@media screen and (max-width: 576px){
-    #code_video{
-        left: 0;
-    }
+/*SLIDESHOW STYLING*/
+.mySlides {
+    display: none;
+}
+
+#slideshow_container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+.slideshow_images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: 100%;
+}
+
+/*NEXT/PREV*/
+.previous, .next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous:hover, .next:hover {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+}
+
+/*SLIDESHOW TEXT*/
+.slide_text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0, 0, 0, .75);
+    font-weight: bold;
+    border-radius: 0 0 7px 7px;
+}
+
+/*SLIDESHOW DOTS*/
+.dot {
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active, .dot:hover {
+    background-color: black;
 }
 
 /*CONTENT BOX STYLING*/
-*{
+* {
     box-sizing: border-box;
 }
 
-.column1{
+.column1 {
     float: left;
     width: 50%;
-    padding: 10px;
+    padding: 1.6%;
     padding-top: 1%;
-    height: 400px;
+    height: 550px;
     background-color: #31511E;
     color: #F6FCDF;
     overflow: auto;
 }
 
-.column1 a, footer a{
+.column1 a, footer a {
     color: #859F3D;
-    text-decoration: none;
 }
 
-.column2{
+.column2 {
     float: left;
     width: 50%;
-    padding: 10px;
-    padding-top: 1.9%;
-    height: 400px;
+    padding: 1.6%;
+    height: 550px;
     background-color: #859F3D;
 }
 
-.column_tall{
+.column_tall {
     height: 450px;
 }
 
-#about p{
+#about p {
     text-align: justify;
 }
 
-#about img{
+#about img {
     border-radius: 300px;
 }
 
-#contact img{
+.contact_image img  {
     filter: hue-rotate(250deg);
 }
 
-.row:after{
+.row:after {
     content: "";
     display: table;
     clear: both;
 }
 
 /*CONTACT FORM*/
-input[type=text]{
-    width: 100%;
-    padding: 12px;
-    border: 5px solid #859F3D;
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-    font-family: Perpetua, Rockwell Extra Bold;
-}
 
-input[type=text]:hover{
-    box-shadow: 0 0 5px #F6FCDF;
-}
-
-input[type=submit]{
-    background-color: #1A1A19;
-    color: #F6FCDF;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
+/*Button for opening the contact form*/
+.Pop_Up_Button {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: white;
+    color: black;
+    border: solid black;
     cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    transition: transform 1.5s;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
 }
 
-input[type=submit]:hover{
-    transform: scale(1.5);
+/*movePopup animation moves button from off-screen*/
+@keyframes movePopup {
+    from {right: -40vw;}
+    to{right: 1.75vw;}
+}
+
+@-webkit-keyframes movePopup {
+    from {right: -40vw;}
+    to{right: 1.75vw;}
+}
+
+/*Popup form*/
+.form-popup {
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+}
+
+.form_container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: white;
+}
+
+/*Input fields*/
+.form-container input[type=text] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: gainsboro;
+    font-size: 1vw;
+}
+
+/*General button styling*/
+button {
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+/*Hover effects*/
+button:hover, .form-container .btn:hover {
+    color: white;
+    background-color: black;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: silver;
+}
+
+/*Submit*/
+.form-container .btn {
+    background-color: white;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+/*Close*/
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: gray;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: black;
+}
+
+/*MEDIA QUERY SECTION*/
+/*Paragraph font size*/
+@media screen and (max-width: 576px) {
+    #code_video {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.1vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 1.99vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 1.8vw;
+    }
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.65vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .navbar a {
+        width: 20%;
+        font-size: 2.5vw;
+    }
+    .quote {
+        font-size: 3.5vw;
+    }
+    h1 {
+        font-size: 4.5vw;
+    }
+}
+
+@media screen and (min-width: 1725px) {
+    .column1, .column2 {
+        height: 550px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    h1 {
+        margin-top: 0;
+    }
 }

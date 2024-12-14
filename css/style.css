@@ -72,6 +72,7 @@ a {
     z-index: 2;
     -webkit-animation: move_nav 2s;
     animation: move_nav 2s;
+    user-select: none;
 }
 
 @keyframes move_nav {
@@ -104,7 +105,7 @@ a {
 #code_video {
     position: fixed;
     left: 19%;
-    bottom: 0;
+    bottom: -6vh;
     min-width: 100%;
     z-index: -1;
 }
@@ -123,22 +124,30 @@ a {
 }
 
 #slideshow_container {
-    width: 39.5vw;
+    width: 33vw;
     height: auto;
     padding-top: 4%;
     position: relative;
     margin: auto;
 }
 
+.contact_image img  {
+    filter: hue-rotate(250deg);
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 19, 0.75);
+    background-color: rgb(61, 133, 159);
+}
+
 .slideshow_images {
     vertical-align: middle;
     height: auto;
-    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    box-shadow: 0px 5px 10px 12px rgba(0, 19, 0, .75);
     width: 100%;
+    border-radius: 8px;
 }
 
 /*NEXT/PREV*/
 .previous, .next {
+    color: #1A1A19;
     position: absolute;
     top: 50%;
     width: auto;
@@ -156,13 +165,13 @@ a {
 }
 
 .previous:hover, .next:hover {
-    background-color: rgba(0, 0, 0, .8);
-    color: white;
+    background-color: rgba(0, 19, 0, .8);
+    color: #F6FCDF;
 }
 
 /*SLIDESHOW TEXT*/
 .slide_text {
-    color: white;
+    color: #859F3D;
     padding: 1vw;
     position: absolute;
     bottom: 0;
@@ -170,13 +179,14 @@ a {
     text-align: center;
     letter-spacing: .1vw;
     font-size: 1.5vw;
-    background-color: rgba(0, 0, 0, .75);
+    background-color: rgba(0, 19, 0, .75);
     font-weight: bold;
     border-radius: 0 0 7px 7px;
 }
 
 /*SLIDESHOW DOTS*/
 .dot {
+    cursor: pointer;
     height: 1vw;
     width: 1vw;
     margin: .25vw;
@@ -231,10 +241,6 @@ a {
     border-radius: 300px;
 }
 
-.contact_image img  {
-    filter: hue-rotate(250deg);
-}
-
 .row:after {
     content: "";
     display: table;
@@ -249,9 +255,9 @@ a {
     bottom: 1.75vw;
     right: 1.75vw;
     width: 25vw;
-    background-color: white;
-    color: black;
-    border: solid black;
+    background-color: #859F3D;
+    color: #1A1A19;
+    border: solid #1A1A19;
     cursor: pointer;
     -webkit-animation: movePopup 5s;
     animation: movePopup 5s;
@@ -280,16 +286,18 @@ a {
 .form_container {
     max-width: 49vw;
     padding: 1vw;
-    background-color: white;
+    background-color: #31511E;
+    color: #F6FCDF;
 }
 
 /*Input fields*/
-.form-container input[type=text] {
+.form_container input[type=text] {
     width: 100%;
     padding: .93vw;
     margin: .6vw 0 .6vw 0;
     border: none;
-    background: gainsboro;
+    background: #859F3D;
+    color: #F6FCDF;
     font-size: 1vw;
 }
 
@@ -305,35 +313,35 @@ button {
 }
 
 /*Hover effects*/
-button:hover, .form-container .btn:hover {
-    color: white;
-    background-color: black;
+button:hover, .form_container .btn:hover {
+    color: #859F3D;
+    background-color: #1A1A19;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
-    border-color: silver;
+    border-color: #F6FCDF;
 }
 
 /*Submit*/
-.form-container .btn {
-    background-color: white;
-    color: black;
-    border-color: black;
+.form_container .btn {
+    background-color: #859F3D;
+    color: #F6FCDF;
+    border-color: #F6FCDF;
     margin-bottom: 1vh;
 }
 
 /*Close*/
-.form-container .cancel {
-    background-color: black;
-    color: white;
-    border-color: gray;
+.form_container .cancel {
+    background-color: #1A1A19;
+    color: #31511E;
+    border-color: #F6FCDF;
 }
 
-.form-container .cancel:hover {
-    color: white;
-    background-color: darkred;
+.form_container .cancel:hover {
+    color: #859F3D;
+    background-color: #31511E;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
-    border-color: black;
+    border-color: #1A1A19;
 }
 
 /*MEDIA QUERY SECTION*/
@@ -422,3 +430,4 @@ button:hover, .form-container .btn:hover {
         margin-top: 0;
     }
 }
+

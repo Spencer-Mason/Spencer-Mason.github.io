@@ -105,7 +105,8 @@ a {
 #code_video {
     position: fixed;
     left: 19%;
-    bottom: -6vh;
+    bottom: -4vh;
+    height: 104%;
     min-width: 100%;
     z-index: -1;
 }
@@ -211,7 +212,7 @@ a {
     width: 50%;
     padding: 1.6%;
     padding-top: 1%;
-    height: 550px;
+    height: 51vh;
     background-color: #31511E;
     color: #F6FCDF;
     overflow: auto;
@@ -225,7 +226,7 @@ a {
     float: left;
     width: 50%;
     padding: 1.6%;
-    height: 550px;
+    height: 51vh;
     background-color: #859F3D;
 }
 
@@ -421,7 +422,7 @@ button:hover, .form_container .btn:hover {
 
 @media screen and (min-width: 1725px) {
     .column1, .column2 {
-        height: 550px;
+        height: 58vh;
     }
 }
 

@@ -409,7 +409,7 @@ button:hover, .form_container .btn:hover {
 
 @media screen and (max-width: 1080px) {
     .navbar a {
-        width: 20%;
+        width: 16.5%;
         font-size: 2.5vw;
     }
     .quote {
